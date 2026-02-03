@@ -82,7 +82,7 @@
             position: relative; 
         }
         
-        /* ไอคอน PDF มาตรฐาน */
+        /* ไอคอน PDF มาตรฐาน (สำหรับ Tool อื่นๆ) */
         .pdf-icon {
             width: 60px;
             height: auto;
@@ -91,11 +91,32 @@
         }
 
         /* --- สไตล์เฉพาะ: Merge (Tool 2) --- */
-        .plus-sign {
-            font-size: 40px;
-            font-weight: bold;
-            color: #7f8c8d;
-            margin: 0 15px;
+        .merge-scene-new {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px; 
+        }
+        .pdf-red-block {
+            width: 50px;
+            height: auto;
+            filter: drop-shadow(0 4px 5px rgba(192, 57, 43, 0.3)); 
+            transition: transform 0.3s;
+        }
+        .plus-glow-new {
+            font-size: 45px;
+            font-weight: 900;
+            color: #555; 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); 
+            margin: 0 10px;
+            z-index: 2;
+        }
+        .merge-bg-light {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%);
+            z-index: 0;
         }
 
         /* --- สไตล์เฉพาะ: Split (Tool 3) --- */
@@ -121,7 +142,7 @@
         /* --- สไตล์เฉพาะ: Stamp (Tool 4) --- */
         .stamp-scene {
             position: relative;
-            width: 140px; /* พื้นที่ Scene */
+            width: 140px; 
             height: 120px;
             display: flex;
             justify-content: center;
@@ -159,7 +180,7 @@
             filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.15)); 
         }
 
-        /* --- สไตล์เฉพาะ: Optimizer (Tool 5) - ใหม่! --- */
+        /* --- สไตล์เฉพาะ: Optimizer (Tool 5) --- */
         .optimizer-scene {
             display: flex;
             align-items: center;
@@ -176,11 +197,11 @@
         }
         .resize-arrow {
             font-size: 28px;
-            color: #9b59b6; /* สีม่วง */
+            color: #9b59b6; 
             font-weight: bold;
         }
 
-        /* --- สไตล์เฉพาะ: Swaper (Tool 6) - ใหม่! --- */
+        /* --- สไตล์เฉพาะ: Swaper (Tool 6) --- */
         .swaper-scene {
             display: flex;
             align-items: center;
@@ -189,11 +210,28 @@
         }
         .swap-icon {
             font-size: 30px;
-            color: #1abc9c; /* สีเขียวน้ำทะเล */
+            color: #1abc9c; 
         }
         .file-icon-generic {
             width: 50px;
             filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
+        }
+
+        /* --- สไตล์เฉพาะ: Rename (Tool 7) - เพิ่มใหม่ --- */
+        .rename-scene {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .rename-doc-icon {
+            width: 55px;
+            filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
+        }
+        .rename-pencil {
+            width: 45px;
+            filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.2));
+            transform: rotate(-10deg) translateY(-5px); /* เอียงนิดหน่อยให้ดูเหมือนกำลังเขียน */
         }
 
         /* เนื้อหาการ์ด */
@@ -242,12 +280,15 @@
         .btn-red { background-color: #e74c3c; }
         .btn-red:hover { background-color: #c0392b; }
 
-        /* สีปุ่มใหม่ */
         .btn-purple { background-color: #9b59b6; }
         .btn-purple:hover { background-color: #8e44ad; }
 
         .btn-teal { background-color: #1abc9c; }
         .btn-teal:hover { background-color: #16a085; }
+
+        /* สีปุ่มใหม่ (ชมพูเข้ม) */
+        .btn-pink { background-color: #e84393; }
+        .btn-pink:hover { background-color: #d63031; }
 
     </style>
 </head>
@@ -274,9 +315,12 @@
         <div class="tool-card">
             <div class="media-area">
                 <div class="pdf-visual-container">
-                    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="pdf-icon">
-                    <span class="plus-sign">+</span>
-                    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="pdf-icon">
+                    <div class="merge-bg-light"></div>
+                    <div class="merge-scene-new">
+                        <img src="https://cdn-icons-png.flaticon.com/512/337/337956.png" alt="Red PDF 1" class="pdf-red-block">
+                        <span class="plus-glow-new">+</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/337/337956.png" alt="Red PDF 2" class="pdf-red-block">
+                    </div>
                 </div>
             </div>
             <div class="content-area">
@@ -330,9 +374,7 @@
                 <div class="pdf-visual-container">
                     <div class="optimizer-scene">
                         <img src="https://cdn-icons-png.flaticon.com/512/337/337926.png" alt="Large File" class="opt-icon-large">
-                        
                         <span class="resize-arrow">&#8646;</span>
-                        
                         <img src="https://cdn-icons-png.flaticon.com/512/337/337926.png" alt="Small File" class="opt-icon-small">
                     </div>
                 </div>
@@ -349,9 +391,7 @@
                 <div class="pdf-visual-container">
                     <div class="swaper-scene">
                         <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF File" class="file-icon-generic">
-                        
                         <span class="swap-icon">&#128260;</span>
-                        
                         <img src="https://cdn-icons-png.flaticon.com/512/337/337926.png" alt="JPG File" class="file-icon-generic">
                     </div>
                 </div>
@@ -360,6 +400,23 @@
                 <h3>6. pdf&jpg swaper</h3>
                 <p>แปลงไฟล์รูปภาพเป็น PDF หรือแปลง PDF กลับเป็นรูปภาพ สลับไปมาได้ทันที</p>
                 <a href="https://totosang.github.io/pdf-to-jpg-to-pdf/" target="_blank" class="btn-link btn-teal">เปิดใช้งาน</a>
+            </div>
+        </div>
+
+        <div class="tool-card">
+            <div class="media-area">
+                <div class="pdf-visual-container">
+                    <div class="rename-scene">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2965/2965335.png" alt="File Document" class="rename-doc-icon">
+                        
+                        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Edit Pencil" class="rename-pencil">
+                    </div>
+                </div>
+            </div>
+            <div class="content-area">
+                <h3>7. Smart Rename Tool</h3>
+                <p>เปลี่ยนชื่อไฟล์จำนวนมากได้ในคลิกเดียว ลากใส่ทั้งโฟลเดอร์ ปรับแต่งชื่อหน้า-หลังได้อิสระ</p>
+                <a href="https://totosang.github.io/Smart-Rename-Tool/" target="_blank" class="btn-link btn-pink">เปิดใช้งาน</a>
             </div>
         </div>
 
