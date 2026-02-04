@@ -216,6 +216,15 @@
         .license-icon { width: 70px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.15)); }
         .license-calc { width: 35px; position: absolute; bottom: -5px; right: -15px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
 
+        /* --- สไตล์เฉพาะ: Magic Eraser (Tool 8) - เพิ่มใหม่ --- */
+        .eraser-scene { display: flex; align-items: center; justify-content: center; position: relative; }
+        .eraser-img { width: 65px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+        .eraser-wand { width: 50px; position: absolute; right: -15px; top: -15px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); animation: magic-float 2.5s infinite ease-in-out; }
+        @keyframes magic-float { 
+            0%, 100% { transform: translateY(0) rotate(0deg); } 
+            50% { transform: translateY(-8px) rotate(10deg); } 
+        }
+
         /* Content Area */
         .content-area { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .content-area h3 { 
@@ -264,6 +273,8 @@
         .btn-teal { background: linear-gradient(90deg, #1abc9c, #16a085); }
         .btn-pink { background: linear-gradient(90deg, #ff7979, #eb4d4b); }
         .btn-gold { background: linear-gradient(90deg, #f1c40f, #f39c12); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        /* สีปุ่มใหม่ (Magic Cyan) */
+        .btn-magic { background: linear-gradient(90deg, #00c6ff, #0072ff); }
 
         /* Responsive */
         @media (max-width: 900px) {
@@ -435,6 +446,23 @@
                     <h3>7. Smart Rename Tool</h3>
                     <p>เปลี่ยนชื่อไฟล์จำนวนมากได้ในคลิกเดียว ลากใส่ทั้งโฟลเดอร์ ปรับแต่งชื่อหน้า-หลังได้อิสระ</p>
                     <a href="https://totosang.github.io/Smart-Rename-Tool/" target="_blank" class="btn-link btn-pink">เปิดใช้งาน</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="media-area">
+                    <div class="pdf-visual-container">
+                        <div class="eraser-scene">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2659/2659360.png" alt="Image" class="eraser-img">
+                            
+                            <img src="https://cdn-icons-png.flaticon.com/512/1066/1066763.png" alt="Magic Eraser" class="eraser-wand">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <h3>8. AI Magic Eraser</h3>
+                    <p>ลบพื้นหลังรูปภาพอัตโนมัติด้วย AI แม่นยำ รวดเร็ว ได้ภาพพื้นหลังโปร่งใสทันที</p>
+                    <a href="https://totosang.github.io/AI-Magic-Eraser/" target="_blank" class="btn-link btn-magic">เปิดใช้งาน</a>
                 </div>
             </div>
 
